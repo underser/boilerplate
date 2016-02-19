@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "description": "",
+  "main": "index.jade",
+  "authors": [
+    "Roman Slusar"
+  ],
+  "license": "ISC",
+  "keywords": [
+    ""
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "breakpoint-sass": "breakpoint-sass#^2.6.1",
+    "susy": "^2.2.12"
+  }
+}
