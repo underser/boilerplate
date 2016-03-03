@@ -1,48 +1,53 @@
 var gulp         = require('gulp'),
 		sass         = require('gulp-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
-		browserSync  = require('browser-sync').create(),
 		jade         = require('gulp-jade'),
 		concat       = require('gulp-concat'),
-		uglify       = require('gulp-uglifyjs');
+		uglify       = require('gulp-uglifyjs'),
+		browserSync  = require('browser-sync').create();
 
-gulp.task('browser-sync', ['styles', 'scripts', 'jade'], function() {
+gulp.task("serve", ["sass", "templates"], function() {
+
 		browserSync.init({
-				server: {
-						baseDir: "./"
-				},
-				notify: false
+				server: "./dist"
 		});
-		
+
+		gulp.watch("*.jade", ["templates"]);
+		gulp.watch("jade-includes/*.jade", ["templates"]);
+		gulp.watch("sass/*.sass", ["sass"]);
+		gulp.watch("dist/js/*.js").on('change', browserSync.reload);
 });
 
-gulp.task('styles', function () {
-	return gulp.src('sass/*.sass')
+gulp.task("templates", function() {
+	var YOUR_LOCALS = {};
+
+//pretty: true -- make output files expanded
+	gulp.src('*.jade')
+		.pipe(jade({
+			locals: YOUR_LOCALS,
+			pretty: true
+		}))
+		.pipe(gulp.dest('dist'))
+		.pipe(browserSync.stream());
+});
+
+//Compile sass
+gulp.task("sass", function() {
+	return gulp.src("sass/*.sass")
+	.pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}))
 	.pipe(autoprefixer({browsers: ['last 15 versions'], cascade: false}))
-	.pipe(gulp.dest('dist/css'))
+	.pipe(gulp.dest("dist/css"))
 	.pipe(browserSync.stream());
 });
 
-gulp.task('jade', function() {
-	return gulp.src('*.jade')
-	.pipe(jade())
-	.pipe(gulp.dest('dist'));
-});
 
-gulp.task('scripts', function() {
+gulp.task("lib", function() {
 	return gulp.src([
-		'./bower_components/jquery/jquery-1.11.2.min.js',
+			'./bower_components/jquery/dist/jquery.min.js',
 		])
-		.pipe(concat('libs.js'))
-		// .pipe(uglify()) //Minify libs.js
-		.pipe(gulp.dest('./dist/js/'));
+		.pipe(concat("libs.js"))
+		.pipe(uglify()) //Minify libs.js
+		.pipe(gulp.dest("dist/js/"));
 });
 
-gulp.task('watch', function () {
-	gulp.watch('sass/*.sass', ['styles']);
-	gulp.watch('*.jade', ['jade']).on('change', browserSync.reload);
-	gulp.watch('dist/libs/**/*.js', ['scripts']);
-	gulp.watch('app/js/*.js').on("change", browserSync.reload);
-});
-
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task("default", ["serve"]);

@@ -1,4 +1,24 @@
-@import "../bower_components/susy/sass/susy"
-@import "../bower_components/breakpoint-sass/stylesheets/breakpoint"
-@import "../sass/_var-susy.scss"
-@import "../sass/_var.sass"
+//Colors
+
+
+
+$container-widht: 1280px
+
+//Media
+//breakpoint
+$phone-small: max-width 500px;
+$phone-large: max-width 750px;
+$phone-tablet: max-width 992px;
+$tablet: 750px 992px;
+$desktop: min-width 992px;
+$large-desktop: min-width 1200px;
+
+@function rem($size)
+  $remSize: $size / 16px
+  @return #{$remSize}rem
+
+@mixin clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
