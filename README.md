@@ -1,7 +1,7 @@
 # Boilerplate 
-*Це стартовий шаблон, який включає в себе, найбільш популярні інструменти для front-end development-ту на 2016 рік*
+*It's a starter kit for front-end development with Jade, Sass, Gulp, Bower and other cool stuff*
 
-**Для того щоб розпочати розробку нового проекту необхідно лише:**
+**For quick start with this boilerplate, you just need type commands below:**
 
 ```shell
 	mkdir newProjectFolder
