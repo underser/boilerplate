@@ -11,6 +11,8 @@
 	git push --mirror 'link to new github repository'
 	cd ..
 	rm -rf boilerplate.git
+	git init
+	git remote add origin 'link to new github repository'
 ```
 
 ### Devdependencies:
@@ -21,10 +23,16 @@
 
 ### NPM dependencies:
 	|dependence           | version  |
-	|----------:          | :-------: |
+	|----------           | -------  |
 	|"gulp":              |  "^3.9.1"|
 	|"gulp-autoprefixer": | "^3.1.0" |
 	|"gulp-concat":       | "^2.6.0" |
 	|"gulp-jade":         | "^1.1.0" |
 	|"gulp-sass":         | "^2.2.0" |
 	|"gulp-uglifyjs":     | "^0.6.2" |
+
+### Bower dependencies:
+	|dependence           | version                   |
+	|----------           | -------                   |
+	|"breakpoint-sass":   |  "breakpoint-sass#^2.6.1" |
+	|"susy":              | "^2.2.12"                 |
