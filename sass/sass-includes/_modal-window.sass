@@ -1,0 +1,108 @@
+@mixin modal
+	@keyframes modal
+		0%
+			transform: scale3d(0, 0, 0)
+			opacity: 0
+		50%
+			transform: scale3d(1.02, 1.02, 1.02)
+		80%
+			transform: scale3d(0.95, 0.95, 0.95)
+		100%
+			transform: scale3d(1, 1, 1)
+			opacity: 1
+	.modal
+		overflow: auto
+		position: relative
+		margin: 0 10px
+		padding: 40px 20px 20px 20px
+		background: #fff
+		&--animate
+			animation-name: modal;
+			animation-duration: 0.5s;
+			animation-fill-mode: both;
+			animation-timing-function: ease;
+		&-wrapper
+			width: 50%
+			margin: 10% auto 0 auto
+			@include breakpoint($md)
+				width: 95%
+		&-overlay
+			overflow: auto
+			position: fixed
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			z-index: 9999
+			background-color: rgba(#000, 0.5)
+		&__button
+			padding: 0.5em
+			outline: 0
+			display: inline
+			margin: 0
+			max-width: 100%
+			border: 0
+			border-radius: 4px
+			font-size: 1em
+			text-decoration: none
+			text-transform: uppercase
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+			vertical-align: middle
+			cursor: pointer
+			user-select: none
+			appearance: none
+			background-color: #969696
+			color: #fff
+			border: 1px solid transparent
+			&--primary
+				background-color: #42A5F5
+				color: #fff;
+				&:hover
+					background-color: #6ebaf7
+			&--close
+				background-color: transparent
+				color: inherit
+				border: 1px solid transparent
+				outline: none
+				padding: 0
+				margin: 0
+				font: 300 30px Arial, sans-serif
+				position: absolute
+				top: 20px
+				right: 20px
+				cursor: pointer
+		&__header
+			margin: 5px 0 20px 0
+			font: 300 $base-font-size $base-font
+		&__body
+			margin: 10px 0
+			p
+				padding: 10px 0
+				line-height: 23px
+			strong
+				font-weight: bold
+			em
+				font-style: italic
+			ins
+				text-decoration: underline
+			del
+				text-decoration: line-through
+			ul,ol
+				padding: 15px 0 20px 40px
+			li
+				display: list-item
+			ul
+				list-style-type: disc
+			ol
+				display: block
+				list-style-type: decimal
+		&__footer
+			margin: 20px 0
+		$h-size-index: 15
+		@for $i from 1 through 6
+			h#{$i}
+				margin: 10px 0 15px 0
+				font-size: $base-font-size + $h-size-index
+			$h-size-index: $h-size-index - 2

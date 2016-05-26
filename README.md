@@ -6,20 +6,18 @@
 ```shell
 	mkdir newProjectFolder
 	cd newProjectFolder
-	git clone --bare https://github.com/underser/boilerplate.git
-	cd boilerplate.git
-	git push --mirror 'link to new github repository'
-	cd ..
-	rm -rf boilerplate.git
-	git init
-	git remote add origin 'link to new github repository'
+	mkdir site & source
+	git clone https://github.com/underser/boilerplate.git
+	mv boilerplate site
+	cd site
+	rm -rf .git settings.jar README.md
+	npm i
+	npm run bower i
 ```
 
 ### Devdependencies:
 	> - node.js
 	> - npm
-	> - bower (global)
-	> - gulp (global)
 
 ### NPM dependencies:
 	|dependence           | version  |

@@ -1,0 +1,43 @@
+///*-----
+	//Font Settings
+//-------*/
+$base-font: "Opens Sans", sans-serif
+$base-font-size: 18px
+
+///*-----
+	//Colors
+//-------*/
+$base: #000
+
+
+///*-----
+	//Grid Settings
+//-------*/
+$columns: 12
+$gutters: 0
+$math: fluid
+$container-width: 1280px
+$container-min-width: 320px
+
+$show-grid: hide
+
+$xs: min-width 544px; // Extra small
+$sm: max-width 544px; // Small
+$md: max-width 768px; // Medium
+$lg: max-width 992px; // Large
+$xl: min-width 1200px; // Extra large
+
+$susy: (columns: $columns,gutters: $gutters,gutter-position: inside,math: $math,container: $container-width,debug: (image: $show-grid,color: rgba(#66f, .5),output: background,toggle: top right,));
+
+@function rem($size)
+	$remSize: $size / $base-font-size
+	@return #{$remSize}rem
+
+@function to-bool($value)
+	@return not ($value or $value == "" or $value == 0 or $value == ())
+
+@mixin clearfix
+	&:after
+		content: ""
+		display: table
+		clear: both

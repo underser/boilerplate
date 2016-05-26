@@ -1,0 +1,38 @@
+mixin modal
+	div.modal-overlay.hide
+		div.modal-wrapper
+			div.modal.modal--animate
+				button.modal__button.modal__button--close(type='button')
+					| ×
+				header.modal__header
+					h4 Hi I'm in modal header
+				div.modal__body
+					h1 Modal h1
+					h2 Modal h2
+					h3 Modal h3
+					h4 Modal h4
+					h5 Modal h5
+					h6 Modal h6
+					p Madal p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, repellat labore pariatur ducimus officiis commodi rerum quam nesciunt quo dignissimos libero reprehenderit neque aliquid sint odit atque voluptate ab excepturi? Quod soluta voluptatem velit voluptas molestias architecto laborum saepe quia numquam libero aperiam, odio quas molestiae sequi quibusdam nulla dolorem neque, eum, provident cum incidunt natus. Aliquid vitae illo iusto expedita libero doloremque excepturi optio, voluptatum minima soluta quam temporibus esse recusandae nihil dolorum hic, illum asperiores consequuntur id doloribus fugit incidunt at. Vitae dolore porro voluptate cumque mollitia iusto quos esse, ex earum. Est, quisquam! Numquam sunt ex suscipit, molestiae, nesciunt optio veritatis eius corporis. Iste minus vero explicabo nostrum non, animi, fugiat aspernatur ratione quae provident incidunt atque magnam sed, nam, labore. Dignissimos temporibus voluptate corporis a, laudantium, numquam, velit blanditiis, enim nisi itaque incidunt dolorum rem. Incidunt obcaecati unde, eligendi sapiente dolorem ea, quo architecto quisquam quasi ipsa totam error harum! Voluptas consectetur, dignissimos asperiores iste dicta fuga aliquam repudiandae reiciendis mollitia ducimus veritatis sequi ipsam. Numquam blanditiis velit et quod voluptatibus porro distinctio accusantium dicta, harum dolor explicabo quos sint ullam, facere dignissimos inventore, corrupti error labore assumenda officia rerum in. Fuga, tenetur. Vitae enim, esse.
+					del line through text <br>
+					<br>
+					ins This line of text is meant to be treated as an addition to the document. <br>
+					<br>
+					strong rendered as bold text <br>
+					<br>
+					em rendered as italicized text
+					<br>
+					ul
+						- for(var i = 0; i < 5; i++)
+							li list item
+					ol
+						- for(var i = 0; i < 5; i++)
+							li list item
+				footer.modal__footer
+					button.modal__button.modal__button--primary(type='button') Modal button
+
+//- 	If you need modal window
+//- 	just uncomment string below this comment
+//- 	APPLY .show-default-modal class to a specific item, and it will show you this modal window
+
+//- +modal

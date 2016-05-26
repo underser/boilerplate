@@ -1,6 +1,0 @@
-@import "../bower_components/susy/sass/susy";
-@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
-@import "_var.sass";
-
-
-$susy: (columns: 12,gutters: 0,math: fluid,container: $container-widht,debug: (image: hide,color: rgba(#66f, .5),output: background,toggle: top right,));

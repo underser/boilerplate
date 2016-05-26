@@ -4,11 +4,14 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
+    "gulp": "node_modules/gulp/bin/gulp.js",
+    "bower": "node_modules/bower/bin/bower/bin",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Roman Slusar",
   "license": "ISC",
   "devDependencies": {
+    "bower": "^1.7.9",
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
