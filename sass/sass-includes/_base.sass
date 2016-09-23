@@ -1,13 +1,17 @@
 @include border-box-sizing
 
 body, html
-	@include container
 	min-width: $container-min-width
 	font: 300 $base-font-size $base-font
 	@include breakpoint($md)
 		font-size: $base-font-size - 1px !important
 	@include breakpoint($sm)
 		font-size: $base-font-size - 2px !important
+
+body
+	overflow-x: hidden
+	&.over-hide
+		overflow: hidden !important
 
 //*-----
 	If you need grid classes
@@ -30,11 +34,11 @@ img
 .show
 	display: block
 
-.f-left
+.text-left
 	text-align: left
 
-.f-right
+.text-right
 	text-align: right
 
-.f-center
+.text-center
 	text-align: center

@@ -70,29 +70,28 @@ a {
 }
 
 body, html {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
   min-width: 320px;
   font: 300 18px "Opens Sans", sans-serif;
 }
 
-body:after, html:after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   body, html {
     font-size: 17px !important;
   }
 }
 
-@media (max-width: 544px) {
+@media (min-width: 769px) {
   body, html {
     font-size: 16px !important;
   }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.over-hide {
+  overflow: hidden !important;
 }
 
 img {
@@ -107,14 +106,14 @@ img {
   display: block;
 }
 
-.f-left {
+.text-left {
   text-align: left;
 }
 
-.f-right {
+.text-right {
   text-align: right;
 }
 
-.f-center {
+.text-center {
   text-align: center;
 }
