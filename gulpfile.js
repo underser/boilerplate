@@ -1,9 +1,12 @@
 var gulp         = require('gulp'),
+		newer        = require('gulp-newer'),
+		imagemin     = require('gulp-imagemin'),
 		sass         = require('gulp-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
 		jade         = require('gulp-jade'),
 		concat       = require('gulp-concat'),
 		uglify       = require('gulp-uglifyjs'),
+		spritesmith  = require('gulp.spritesmith'),
 		browserSync  = require('browser-sync').create();
 
 gulp.task("serve", ["sass", "templates"], function() {
@@ -24,6 +27,7 @@ gulp.task("templates", function() {
 
 //pretty: true -- make output files expanded
 	gulp.src('jade/*.jade')
+		.pipe(newer('jade/*.jade'))
 		.pipe(jade({
 			locals: YOUR_LOCALS,
 			pretty: true
@@ -44,11 +48,30 @@ gulp.task("sass", function() {
 
 gulp.task("lib", function() {
 	return gulp.src([
-			'./bower_components/jquery/dist/jquery.min.js',
+			'./bower_components/jquery/dist/jquery.js',
 		])
 		.pipe(concat("libs.min.js"))
 		.pipe(uglify()) //Minify libs.js
 		.pipe(gulp.dest("dist/js/"));
+});
+
+
+var imgSrc = 'images/**';
+var imgDest = 'dist/images';
+gulp.task("images", function() {
+	return gulp.src(imgSrc)
+				.pipe(newer(imgDest))
+				.pipe(imagemin())
+				.pipe(gulp.dest(imgDest));
+});
+
+gulp.task("sprite", function () {
+	var spriteData = gulp.src('images/sprite/*.png').pipe(spritesmith({
+		algorithm: 'top-down',
+		imgName: 'sprite.png',
+		cssName: 'sprite.css'
+	}));
+	return spriteData.pipe(gulp.dest('dist/images/sprite/'));
 });
 
 gulp.task("default", ["serve"]);
