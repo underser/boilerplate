@@ -19,5 +19,9 @@
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^2.2.0",
     "gulp-uglifyjs": "^0.6.2"
+  },
+  "dependencies": {
+    "gulp-imagemin": "^3.1.1",
+    "gulp.spritesmith": "^6.3.0"
   }
 }
