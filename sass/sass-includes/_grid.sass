@@ -1,71 +1,71 @@
-//Grid
+// Grid
 .container
-	@include container
-	@if $gutters != 0
-		padding: 0 (gutters() * 2)
+    @include container
+    @if $gutters != 0
+        padding: 0 (gutters() * 2)
 
 .row
-	@if $gutters != 0
-		margin-left: -(gutter())
-		margin-right: -(gutter())
-	@include clearfix
+    @if $gutters != 0
+        margin-left: -(gutter())
+        margin-right: -(gutter())
+    @include clearfix
 
 @mixin grid
-	.col
-		@for $i from 1 through $columns
-			&-#{$i}
-				@include span($i)
-			&-offset-#{$i}
-				@include push($i)
-			&-last
-				float: right
-		@include breakpoint($md)
-			@for $i from 1 through $columns
-				&-md
-					&-#{$i}
-						@include span($i)
-					&-offset-#{$i}
-						@include push($i)
-					&-last
-						float: right
-		@include breakpoint($sm)
-			@for $i from 1 through $columns
-				&-sm
-					&-#{$i}
-						@include span($i)
-					&-offset-#{$i}
-						@include push($i)
-					&-last
-						float: right
-		@include breakpoint($xs)
-			@for $i from 1 through $columns
-				&-xs
-					&-#{$i}
-						@include span($i)
-					&-offset-#{$i}
-						@include push($i)
-					&-last
-						float: right
-		@include breakpoint($xxs)
-			@for $i from 1 through $columns
-				&-xxs
-					&-#{$i}
-						@include span($i)
-					&-offset-#{$i}
-						@include push($i)
-					&-last
-						float: right
-		&--reverse
-			float: right
-			@include breakpoint($xs)
-				float: none
-	.hidden
-		&-md
-			@include breakpoint($md)
-				display: none
-		&-sm
-			@include breakpoint($sm)
-				display: none
-		&-xs
-			@include breakpoint($xs)
-				display: none
+    .col
+        @for $i from 1 through $columns
+            &-#{$i}
+                @include span($i)
+            &-offset-#{$i}
+                @include push($i)
+            &-last
+                float: right
+        @include breakpoint($md)
+            @for $i from 1 through $columns
+                &-md
+                    &-#{$i}
+                        @include span($i)
+                    &-offset-#{$i}
+                        @include push($i)
+                    &-last
+                        float: right
+        @include breakpoint($sm)
+            @for $i from 1 through $columns
+                &-sm
+                    &-#{$i}
+                        @include span($i)
+                    &-offset-#{$i}
+                        @include push($i)
+                    &-last
+                        float: right
+        @include breakpoint($xs)
+            @for $i from 1 through $columns
+                &-xs
+                    &-#{$i}
+                        @include span($i)
+                    &-offset-#{$i}
+                        @include push($i)
+                    &-last
+                        float: right
+        @include breakpoint($xxs)
+            @for $i from 1 through $columns
+                &-xxs
+                    &-#{$i}
+                        @include span($i)
+                    &-offset-#{$i}
+                        @include push($i)
+                    &-last
+                        float: right
+        &--reverse
+            float: right
+            @include breakpoint($xs)
+                float: none
+    .hidden
+        &-md
+            @include breakpoint($md)
+                display: none
+        &-sm
+            @include breakpoint($sm)
+                display: none
+        &-xs
+            @include breakpoint($xs)
+                display: none

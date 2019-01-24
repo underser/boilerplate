@@ -1,17 +1,16 @@
 ///*-----
-	//Font Settings
+    // Font Settings
 //-------*/
 $base-font: "Opens Sans", sans-serif
 $base-font-size: 18px
 
 ///*-----
-	//Colors
+    // Colors
 //-------*/
 $base: #000
 
-
 ///*-----
-	//Grid Settings
+    // Grid Settings
 //-------*/
 $columns: 12
 $gutters: 0
@@ -21,23 +20,23 @@ $container-min-width: 320px
 
 $show-grid: hide
 
-$xxs: max-width 544px;
-$xs: max-width 768px; // Extra small
-$sm: min-width 769px; // Small
-$md: max-width 992px; // Medium
-$lg: min-width 1200px; // Large
+$xxs: max-width 544px
+$xs: max-width 768px // Extra small
+$sm: min-width 769px // Small
+$md: max-width 992px // Medium
+$lg: min-width 1200px // Large
 
-$susy: (columns: $columns,gutters: $gutters,gutter-position: inside,math: $math,container: $container-width,debug: (image: $show-grid,color: rgba(#66f, .5),output: background,toggle: top right,));
+$susy: (columns: $columns,gutters: $gutters,gutter-position: inside,math: $math,container: $container-width,debug: (image: $show-grid,color: rgba(#66f, .5),output: background,toggle: top right,))
 
 @function rem($size)
-	$remSize: $size / $base-font-size
-	@return #{$remSize}rem
+    $remSize: $size / $base-font-size
+    @return #{$remSize}rem
 
 @function to-bool($value)
-	@return not ($value or $value == "" or $value == 0 or $value == ())
+    @return not ($value or $value == "" or $value == 0 or $value == ())
 
 @mixin clearfix
-	&:after
-		content: ""
-		display: table
-		clear: both
+    &:after
+        content: ""
+        display: table
+        clear: both
