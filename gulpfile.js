@@ -1,42 +1,58 @@
 var gulp         = require('gulp'),
+    fs           = require('fs'),
     newer        = require('gulp-newer'),
     imagemin     = require('gulp-imagemin'),
-    sass         = require('gulp-sass'),
+    less         = require('gulp-less'),
     autoprefixer = require('gulp-autoprefixer'),
-    jade         = require('gulp-jade'),
+    hbs          = require('gulp-compile-handlebars'),
     concat       = require('gulp-concat'),
     uglify       = require('gulp-uglifyjs'),
     spritesmith  = require('gulp.spritesmith'),
+    rename       = require('gulp-rename'),
     browserSync  = require('browser-sync').create();
 
-gulp.task("serve", ["sass", "templates"], function() {
+gulp.task("serve", ["less", "templates"], function() {
+
     browserSync.init({
         server: "./dist"
     });
 
-    gulp.watch("jade/*.jade", ["templates"]);
-    gulp.watch("jade/jade-includes/*.jade", ["templates"]);
-    gulp.watch("sass/*.sass", ["sass"]);
-    gulp.watch("sass/sass-includes/*.sass", ["sass"]);
+    gulp.watch("pages/*.hbs", ["templates"]);
+    gulp.watch("pages/partials/includes/*.hbs", ["templates"]);
+    gulp.watch("less/*.less", ["less"]);
+    gulp.watch("less/includes/*.less", ["less"]);
     gulp.watch("dist/js/*.js").on('change', browserSync.reload);
 });
 
 gulp.task("templates", function() {
-    var YOUR_LOCALS = {};
-
-    gulp.src('jade/*.jade')
-        .pipe(newer('jade/*.jade'))
-        .pipe(jade({
-            locals: YOUR_LOCALS,
-            pretty: true
-        }))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+  gulp.src('pages/*.hbs')
+      .pipe(newer('pages/*.hbs'))
+      .pipe(hbs({
+          data: {} // There you can provide some data to templates
+      }, {
+          ignorePartials: true,
+          batch: ['pages/partials/includes'],
+          helpers : {
+              ifCond: function(a, b, opts) {
+                  if (a == b) {
+                      return opts.fn(this);
+                  } else {
+                      return opts.inverse(this);
+                  }
+              }
+          }
+      }))
+      .pipe(rename({
+          extname: '.html'
+      }))
+      .pipe(gulp.dest('dist'))
+      .pipe(browserSync.stream());
 });
 
-gulp.task("sass", function() {
-    return gulp.src("sass/*.sass")
-        .pipe(sass({errLogToConsole: true, outputStyle: 'expanded'}))
+// Compile less
+gulp.task("less", function() {
+    return gulp.src("less/*.less")
+        .pipe(less())
         .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
         .pipe(gulp.dest("dist/css"))
         .pipe(browserSync.stream());

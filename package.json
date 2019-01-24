@@ -10,15 +10,14 @@
   "author": "Roman Sliusar",
   "license": "ISC",
   "devDependencies": {
-    "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "^2.6.0",
-    "gulp-jade": "^1.1.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-uglifyjs": "^0.6.2",
-    "susy": "^2.2.12"
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglifyjs": "^0.6.2"
   },
   "dependencies": {
     "gulp-imagemin": "^3.1.1",

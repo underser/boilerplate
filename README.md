@@ -1,5 +1,5 @@
 # Boilerplate 
-*It's a starter kit for front-end development with Jade(Pug), Sass, Gulp and other cool stuff*
+*It's a starter kit for front-end development with Handlebars, Less, Gulp and other cool stuff*
 
 **For quick start with this boilerplate, you just need type commands below:**
 
@@ -9,6 +9,7 @@
     mkdir site & source
     cd site
     git clone https://github.com/underser/boilerplate.git .
+    git checkout 'boilerplate_lighteer'
     rm -rf .git settings.jar README.md
     npm i
     npm run gulp
@@ -19,16 +20,14 @@
     > - npm
 
 ### NPM dependencies:
-    |dependence           | version  |
-    |----------           | -------  |
-    |"gulp":              | "^3.9.1" |
-    |"gulp-autoprefixer": | "^3.1.0" |
-    |"gulp-concat":       | "^2.6.0" |
-    |"gulp-jade":         | "^1.1.0" |
-    |"gulp-sass":         | "^2.2.0" |
-    |"gulp-uglifyjs":     | "^0.6.2" |
-    |"breakpoint-sass":   | "^2.7.1" |
-    |"susy":              | "^2.2.12"|
+    |dependence                 | version  |
+    |----------                 | -------  |
+    |"gulp":                    | "^3.9.1" |
+    |"gulp-autoprefixer":       | "^3.1.0" |
+    |"gulp-concat":             | "^2.6.0" |
+    |"gulp-compile-handlebars": | "^0.6.1" |
+    |"gulp-less":               | "^4.0.1" |
+    |"gulp-uglifyjs":           | "^0.6.2" |
     
 ### License
 
