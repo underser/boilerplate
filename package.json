@@ -7,7 +7,7 @@
     "gulp": "node_modules/gulp/bin/gulp.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Roman Slusar",
+  "author": "Roman Sliusar",
   "license": "ISC",
   "devDependencies": {
     "breakpoint-sass": "^2.7.1",
